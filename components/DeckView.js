@@ -1,26 +1,54 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList, StyleSheet, TouchableHighlight } from 'react-native'
+import { View, Text, FlatList, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native'
 import { TabNavigator, StackNavigator } from 'react-navigation'
 
+function Deck ({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Spanish</Text>
+      <Text style={styles.number}>1 cards</Text>
+      <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('TestAdd')} underlayColor='white'>
+        <Text style={styles.btnText}>Add Card</Text>
+      </TouchableOpacity>
+      <TouchableHighlight style={styles.btn2} onPress={() => navigation.navigate('TestQuiz')} underlayColor='white'>
+        <Text style={styles.btnText2}>Start Quiz</Text>
+      </TouchableHighlight>
+    </View>
+  )
+}
+
+function TestAdd () {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Add Card</Text>
+    </View>
+  )
+}
+
+function TestQuiz () {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Start Quiz</Text>
+    </View>
+  )
+}
+
+const DeckStack = StackNavigator({
+  Deck: {
+    screen: Deck,
+  },
+  TestAdd: {
+    screen: TestAdd,
+  },
+  TestQuiz: {
+    screen: TestQuiz,
+  },
+})
+
 export default class DeckView extends Component {
-  handlePress = () => {
-    this.props.navigation.navigate('NewCardView')
-  }
-  handlePress2 = () => {
-    alert('Pika Pika')
-  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Spanish</Text>
-        <Text style={styles.number}>1 cards</Text>
-        <TouchableHighlight style={styles.btn} onPress={this.handlePress} underlayColor='white'>
-          <Text style={styles.btnText}>Add Card</Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.btn2} onPress={this.handlePress2} underlayColor='white'>
-          <Text style={styles.btnText2}>Start Quiz</Text>
-        </TouchableHighlight>
-      </View>
+      <DeckStack />
     )
   }
 }

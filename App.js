@@ -11,10 +11,10 @@ import { Constants } from 'expo'
 
 const Stack = StackNavigator({
   DeckListView: {
-    screen: DeckListView
+    screen: DeckListView,
   },
   DeckView: {
-    screen: DeckView
+    screen: DeckView,
   },
 })
 
