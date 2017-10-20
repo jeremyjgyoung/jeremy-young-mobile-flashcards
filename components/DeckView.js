@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native'
 import { TabNavigator, StackNavigator } from 'react-navigation'
+import QuizView from './QuizView'
 
 function Deck ({ navigation }) {
   return (
@@ -27,9 +28,7 @@ function TestAdd () {
 
 function TestQuiz () {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Start Quiz</Text>
-    </View>
+    <QuizView/>
   )
 }
 
