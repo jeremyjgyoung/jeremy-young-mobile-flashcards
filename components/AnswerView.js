@@ -2,29 +2,11 @@ import React, { Component } from 'react'
 import { View, Text, FlatList, StyleSheet, TouchableHighlight } from 'react-native'
 import { TabNavigator, StackNavigator } from 'react-navigation'
 
-export default class QuizView extends Component {
-  handlePressAns = () => {
-      this.props.navigation.navigate('AnswerView')
-  }
-  handlePressCorr = () => {
-    alert('Congrats!!!')
-  }
-  handlePressIncorr = () => {
-    alert('Oh, no! Pika Pika!')
-  }
+export default class AnswerView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.question}>This is a question?</Text>
-        <TouchableHighlight style={styles.btnAns} onPress={this.handlePressAns} underlayColor='white'>
-          <Text style={styles.answer}>Answer</Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.btn} onPress={this.handlePressCorr} underlayColor='white'>
-          <Text style={styles.btnTextCorr}>Correct</Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.btn2} onPress={this.handlePressIncorr} underlayColor='white'>
-          <Text style={styles.btnTextIncorr}>Incorrect</Text>
-        </TouchableHighlight>
+        <Text style={styles.answer}>This is the answer!</Text>
       </View>
     )
   }
@@ -36,7 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#5CC8BB',
     padding: 40,
   },
-  question: {
+  answer: {
     paddingTop: 40,
     fontSize: 30,
     height: 200,

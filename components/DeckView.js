@@ -1,53 +1,19 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native'
-import { TabNavigator, StackNavigator } from 'react-navigation'
-import QuizView from './QuizView'
-
-function Deck ({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Spanish</Text>
-      <Text style={styles.number}>1 cards</Text>
-      <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('TestAdd')} underlayColor='white'>
-        <Text style={styles.btnText}>Add Card</Text>
-      </TouchableOpacity>
-      <TouchableHighlight style={styles.btn2} onPress={() => navigation.navigate('TestQuiz')} underlayColor='white'>
-        <Text style={styles.btnText2}>Start Quiz</Text>
-      </TouchableHighlight>
-    </View>
-  )
-}
-
-function TestAdd () {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Add Card</Text>
-    </View>
-  )
-}
-
-function TestQuiz () {
-  return (
-    <QuizView/>
-  )
-}
-
-const DeckStack = StackNavigator({
-  Deck: {
-    screen: Deck,
-  },
-  TestAdd: {
-    screen: TestAdd,
-  },
-  TestQuiz: {
-    screen: TestQuiz,
-  },
-})
 
 export default class DeckView extends Component {
   render() {
     return (
-      <DeckStack />
+      <View style={styles.container}>
+        <Text style={styles.title}>Spanish</Text>
+        <Text style={styles.number}>1 cards</Text>
+        <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('NewCardView')} underlayColor='white'>
+          <Text style={styles.btnText}>Add Card</Text>
+        </TouchableOpacity>
+        <TouchableHighlight style={styles.btn2} onPress={() => this.props.navigation.navigate('QuizView')} underlayColor='white'>
+          <Text style={styles.btnText2}>Start Quiz</Text>
+        </TouchableHighlight>
+      </View>
     )
   }
 }
